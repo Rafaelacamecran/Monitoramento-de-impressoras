@@ -3,11 +3,7 @@ Monitoramento de impressoras
 
 # Descrição:
 1. Simula e Automatiza uma Tarefa de TI
-O script automatiza a tarefa repetitiva de verificar o status de múltiplas impressoras, ele lê uma lista de impressoras de um arquivo de texto (.txt) e, para cada uma, simula uma verificação,
-atribuindo aleatoriamente um dos três status possíveis
-A) Disponível: A impressora está online e pronta
-B) Em Uso: A impressora está processando um trabalho
-C) Travada: A fila de impressão tem um problema e precisa de intervenção (o script simula o cancelamento dos trabalhos).
+O script automatiza a tarefa repetitiva de verificar o status de múltiplas impressoras, ele lê uma lista de impressoras de um arquivo de texto (.txt) e para cada uma, simula uma verificação, atribuindo aleatoriamente um dos três status possíveis: Disponível: A impressora está online e pronta, Em Uso: A impressora está processando um trabalho e Travada: A fila de impressão tem um problema e precisa de intervenção (o script simula o cancelamento dos trabalhos).
 
 2. Fornece um Painel de Controle Visual (Dashboard)
 Através da interface gráfica (criada com Tkinter em Python ou Windows Forms em PowerShell), o script oferece um "dashboard" em tempo real.
@@ -125,58 +121,5 @@ O que faz: Pega o resultado da última simulação de monitoramento e o salva no
 Como funciona: O arquivo CSV é formatado como uma planilha, com colunas bem definidas (impressora, status, fila, setor, etc.), podendo ser aberto diretamente no Excel ou em outras ferramentas de análise
 enefício: Transforma os dados voláteis da simulação em um registro permanente e fácil de analisar, compartilhar ou arquivar.
 
-# Desenvolvimento e Depuração:
-1. O Processo de Desenvolvimento (Development) seguiu as seguintes etapas
-Etapa A: Definição dos Requisitos
-Foi definido o que o script precisava fazer
-Ler uma lista de impressoras de um arquivo
-Ter uma interface gráfica com botões
-Simular três status: disponível, em uso e travada
-Realizar ações simuladas com base no status
-Gerar um log em tempo real
-Criar um relatório final em CSV
-
-Etapa B: Escolha da Tecnologia e Arquitetura
-Com os requisitos definidos, foi escolhido as seguintes ferramentas
-Linguagens: Python e PowerShell, para atender as duas opções de linguagens
-Interface Gráfica (GUI): Tkinter para Python (padrão e fácil de usar) e Windows Forms para PowerShell (nativo do Windows)
-Estrutura do Código: Foi decidido separar a lógica em funções claras e reutilizáveis (logar_mensagem, simular_monitoramento, gerar_relatorio), isso torna o código mais organizado e fácil de manter
-
-Etapa C: Codificação (Escrever o Código)
-Esta foi a fase de traduzir a arquitetura e os requisitos em código, foi escrito as funções, criado a janela, os botões e a tabela e foi implementado a lógica de simulação com status aleatórios.
-
-Etapa D: Refinamento Iterativo
-O desenvolvimento raramente é um processo linear, foi feito de forma iterativa
-criado uma versão funcional
-verifica se o arquivo existe, tornando-o mais robusto, lendo o arquivo impressoras.txt
-o desenvolvimento foi o ato de construir o "motor" e o "chassi" do programa
-
-2. O Processo de Depuração (Debugging)
-O script passou por dois ciclos de depuração claros durante a interação
-1. O Cabeçalho do Arquivo Aparecia no Log
-O Bug (Sintoma): Foi notado que a primeira linha do arquivo (impressora;status;fila;setor) estava sendo tratada como uma impressora real
-A Investigação (Análise)
-Hipótese: O código não estava pulando a primeira linha do arquivo
-Verificação: Analisado as funções csv.DictReader (Python) e Import-Csv (PowerShell), ambas são projetadas para usar a primeira linha como cabeçalho automaticamente, a lógica estava correta
-Conclusão: O problema não era um "bug" no código, mas uma potencial má interpretação ou um formato de arquivo inesperado.
-A Correção (Solução): Foi reforçado no código o tratamento de erros para o caso de o cabeçalho estar errado, foi ajustado a lógica para ser mais clara sobre como o arquivo deveria ser.
-
-2: O Relatório CSV Não Era Gerado
-O Bug (Sintoma): O arquivo relatorio.csv não aparecia após clicar no botão
-A Investigação (Análise)
-Hipóteses: O programa não tinha permissão para escrever o arquivo na pasta, O monitoramento falhou e então não havia dados para gerar o relatório e ocorreu um erro silencioso durante a gravação
-Plano de Ação: Foi criado um guia de depuração: verificar a ordem dos cliques, olhar o arquivo de log por mensagens de ERRO e tentar executar como administrador
-A Correção (Solução): foi adicionado mais mensagens de log (logar_mensagem) na função gerar_relatorio, isso é uma técnica de depuração clássica: aumentar a "visibilidade" do que o programa está fazendo, com os novos logs, se o erro ocorrer novamente, poderemos saber exatamente em que ponto o processo falhou.
-
-# Ferramentas e Boas Práticas
-1. Para Desenvolvimento
-IDEs (Ambientes de Desenvolvimento): Ferramentas como VS Code, PyCharm ou o PowerShell ISE ajudam a escrever código mais rápido e com menos erros
-Comentários: Escrever comentários no código (# Exemplo de comentário) para explicar partes complexas é crucial para a manutenção futura.
-
-2. Para Depuração
-Logs: um bom sistema de logs é a ferramenta de depuração mais importante
-Comandos print / Write-Host: A forma mais simples de depurar é inserir comandos para imprimir o valor de uma variável em um ponto específico e ver se está correto
-Debuggers: Ferramentas avançadas (presentes em IDEs) que permitem pausar a execução do código em uma linha específica (breakpoint), inspecionar todas as variáveis e avançar linha por linha para encontrar o ponto exato do erro
-
-# # Tecnologias usadas:
+# Tecnologias usadas:
 Linguagem Python e PowerShell
