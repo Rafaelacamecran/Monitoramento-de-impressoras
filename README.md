@@ -4,31 +4,31 @@ Monitoramento de impressoras
 # Descrição:
 1. Simula e Automatiza uma Tarefa de TI
 O script automatiza a tarefa repetitiva de verificar o status de múltiplas impressoras, ele lê uma lista de impressoras de um arquivo de texto (.txt) e, para cada uma, simula uma verificação,
-atribuindo aleatoriamente um dos três status possíveis:
+atribuindo aleatoriamente um dos três status possíveis
 A) Disponível: A impressora está online e pronta
 B) Em Uso: A impressora está processando um trabalho
 C) Travada: A fila de impressão tem um problema e precisa de intervenção (o script simula o cancelamento dos trabalhos).
 
 2. Fornece um Painel de Controle Visual (Dashboard)
 Através da interface gráfica (criada com Tkinter em Python ou Windows Forms em PowerShell), o script oferece um "dashboard" em tempo real.
-O que se pode ver:
+O que se pode ver
 A) Uma lista de todas as impressoras sendo monitoradas
 B) O status atual de cada uma, destacado por cores (verde para disponível, amarelo para em uso, vermelho para travada)
 C) Informações adicionais como o nome da fila e o setor ao qual a impressora pertence.
 
 3. Registra Atividades para Auditoria e Diagnóstico (Log)
-Tudo o que o script faz é registrado no arquivo log_monitoramento.txt com data e hora, isso é fundamental em um ambiente real de TI para:
+Tudo o que o script faz é registrado no arquivo log_monitoramento.txt com data e hora, isso é fundamental em um ambiente real de TI para
 A) Saber quando uma verificação foi iniciada
 B) Verificar o status de uma impressora em um horário específico
 C) Diagnosticar erros no próprio script ou no processo.
 
 4. Gerar Relatórios Estruturados (Report)
-Com um clique no botão "Gerar Relatório", o script cria um arquivo relatorio.csv. Este arquivo é um "retrato" do estado de todas as impressoras no momento da última verificação. Por ser um arquivo CSV, ele pode ser facilmente aberto no Excel para:
+Com um clique no botão "Gerar Relatório", o script cria um arquivo relatorio.csv. Este arquivo é um "retrato" do estado de todas as impressoras no momento da última verificação. Por ser um arquivo CSV, ele pode ser facilmente aberto no Excel para
 A) Analisar dados (ex: qual setor tem mais impressoras travadas?)
 B) Manter um histórico de status
 C) Enviar um resumo para a gestão
 
-Essa é uma ferramenta ideal para:
+Essa é uma ferramenta ideal para
 A) Analistas de Suporte e Help Desk: Para automatizar uma verificação de rotina e rapidamente identificar problemas
 B) Administradores de Sistemas: Para ter uma visão centralizada do parque de impressão
 C) Estudantes e Desenvolvedores: Como um excelente projeto prático para aprender sobre automação, manipulação de arquivos, criação de interfaces gráficas e lógica de programação em Python e PowerShell.
@@ -107,7 +107,7 @@ Esta é a função central do script, ativada pelo botão "Iniciar Monitoramento
 3. Interface Gráfica e Visualização em Tempo Real
 O script apresenta os dados em uma janela gráfica, agindo como um painel de controle
 * O que faz: Exibe a lista de impressoras e seus status de forma clara e organizada
-* Como funciona: A tabela na janela é atualizada impressora por impressora durante a simulação, ela usa um sistema de cores intuitivo para indicar o status:
+* Como funciona: A tabela na janela é atualizada impressora por impressora durante a simulação, ela usa um sistema de cores intuitivo para indicar o status
 A) Verde: Disponível
 B) Amarelo: Em uso
 C) Vermelho: Travada
@@ -138,7 +138,7 @@ E) Gerar um log em tempo real
 F) Criar um relatório final em CSV
 
 Etapa B: Escolha da Tecnologia e Arquitetura
-Com os requisitos definidos, foi escolhido as seguintes ferramentas:
+Com os requisitos definidos, foi escolhido as seguintes ferramentas
 A) Linguagens: Python e PowerShell, para atender as duas opções de linguagens
 B) Interface Gráfica (GUI): Tkinter para Python (padrão e fácil de usar) e Windows Forms para PowerShell (nativo do Windows)
 C) Estrutura do Código: Foi decidido separar a lógica em funções claras e reutilizáveis (logar_mensagem, simular_monitoramento, gerar_relatorio), isso torna o código mais organizado e fácil de manter
@@ -147,13 +147,13 @@ Etapa C: Codificação (Escrever o Código)
 Esta foi a fase de traduzir a arquitetura e os requisitos em código. Foi escrito as funções, criado a janela, os botões e a tabela e implementamos a lógica de simulação com status aleatórios.
 
 Etapa D: Refinamento Iterativo
-O desenvolvimento raramente é um processo linear, foi feito de forma iterativa:
+O desenvolvimento raramente é um processo linear, foi feito de forma iterativa
 A) Criado uma versão funcional
 B) verifica se o arquivo existe, tornando-o mais robusto, lendo o arquivo impressoras.txt
 C) o desenvolvimento foi o ato de construir o "motor" e o "chassi" do programa
 
 2. O Processo de Depuração (Debugging)
-O script passou por dois ciclos de depuração claros durante a interação:
+O script passou por dois ciclos de depuração claros durante a interação
 1: O Cabeçalho do Arquivo Aparecia no Log
 * O Bug (Sintoma): Foi notado que a primeira linha do arquivo (impressora;status;fila;setor) estava sendo tratada como uma impressora real
 A) A Investigação (Análise)
